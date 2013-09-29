@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="/styles/app.css">
+  </head>
+  <body>
+
+    <div>
+      <div class="module content centered">
+        <h2 class="top">Appconfig</h2>
+
+        <div class="module-content">
+          <div>
+            <div class="module">
+              <legend>Email Settings</legend>
+              <span class="description">Set up all outgoing email from this Hoodie app</span>
+              <form id="emailForm" class="email form-horizontal" action="">
+                <section>
+                <div class="control-group">
+                  <label>Service</label>
+                  <div class="controls">
+                    <select name="emailService">
+                      <option value="Gmail">Google Mail</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label>Username</label>
+                  <div class="controls">
+                    <input name="emailUsername" class="username" placeholder="me@gmail.com" type="email">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label>Password</label>
+                  <div class="controls">
+                    <input name="emailPassword" class="password" type="password">
+                  </div>
+                </div>
+
+                </section>
+                <section>
+                <label></label>
+                <div class="controls">
+                  <button class="submit btn" type="submit">Submit</button>
+                  <span class="submitMessage"></span>
+                </div>
+                </section>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="underscore-min.js"></script>
+    <script src="couchr.js"></script>
+    <script src="appconfig.js"></script>
+
+  </body>
+</html>

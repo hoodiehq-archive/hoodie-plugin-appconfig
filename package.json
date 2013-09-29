@@ -1,0 +1,6 @@
+{
+  "name": "hoodie-plugin-appconfig",
+  "description": "Hoodie plugin for editing global app config",
+  "dependencies": {},
+  "version": "0.1.0"
+}
