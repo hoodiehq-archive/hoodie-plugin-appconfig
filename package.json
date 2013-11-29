@@ -2,5 +2,12 @@
   "name": "hoodie-plugin-appconfig",
   "description": "Hoodie plugin for editing global app config",
   "dependencies": {},
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoodiehq/hoodie-plugin-appconfig.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hoodiehq/hoodie-plugin-appconfig/issues"
+  }
 }
