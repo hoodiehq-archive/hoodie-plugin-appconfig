@@ -18,6 +18,8 @@ $(function () {
         if (err) {
             return alert(err);
         }
+        $('[name=appName]').val(doc.config.app_name);
+        $('[name=fromEmail]').val(doc.config.email_from);
         $('[name=emailService]').val(doc.config.email_service);
         $('[name=emailUsername]').val(doc.config.email_user);
         $('[name=emailPassword]').val(doc.config.email_pass);
@@ -27,6 +29,8 @@ $(function () {
     $('#emailForm').submit(function (ev) {
         ev.preventDefault();
         var cfg = {
+            app_name: $('[name=appName]').val(),
+            email_from: $('[name=fromEmail]').val(),
             email_host: null,
             email_port: null,
             email_user: $('[name=emailUsername]').val(),

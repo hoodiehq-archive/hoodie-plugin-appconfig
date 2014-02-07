@@ -16,46 +16,65 @@
         <h2 class="top">Appconfig</h2>
 
         <div class="module-content">
-          <div>
             <div class="module">
               <legend>Email Settings</legend>
               <span class="description">Set up all outgoing email from this Hoodie app</span>
               <form id="emailForm" class="email form-horizontal" action="">
+
                 <section>
-                <div class="control-group">
-                  <label>Service</label>
-                  <div class="controls">
-                    <select name="emailService">
-                      <option value="Gmail">Google Mail</option>
-                      <option value="Mailgun">Mailgun</option>
-                      <option value="Mandrill">Mandrill</option>
-                      <option value="Postmark">Postmark</option>
-                      <option value="SendGrid">SendGrid</option>
-                    </select>
+                  <div class="control-group">
+                    <label>App Name</label>
+                    <div class="controls">
+                      <input name="appName" type="text">
+                    </div>
                   </div>
-                </div>
 
-                <div class="control-group">
-                  <label>Username</label>
-                  <div class="controls">
-                    <input name="emailUsername" class="username" placeholder="me@gmail.com" type="email">
+                  <div class="control-group">
+                    <label>
+                      Default From E-Mail Address<br>
+                      <small>(e.g. for password resets)</small>
+                    </label>
+                    <div class="controls">
+                      <input name="fromEmail" type="email">
+                    </div>
                   </div>
-                </div>
-
-                <div class="control-group">
-                  <label>Password</label>
-                  <div class="controls">
-                    <input name="emailPassword" class="password" type="password">
-                  </div>
-                </div>
-
                 </section>
+
                 <section>
-                <label></label>
-                <div class="controls">
-                  <button class="submit btn" type="submit">Submit</button>
-                  <span class="submitMessage"></span>
-                </div>
+                  <div class="control-group">
+                    <label>Service</label>
+                    <div class="controls">
+                      <select name="emailService">
+                        <option value="Gmail">Google Mail</option>
+                        <option value="Mailgun">Mailgun</option>
+                        <option value="Mandrill">Mandrill</option>
+                        <option value="Postmark">Postmark</option>
+                        <option value="SendGrid">SendGrid</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label>Username</label>
+                    <div class="controls">
+                      <input name="emailUsername" class="username" placeholder="me@gmail.com" type="email">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label>Password</label>
+                    <div class="controls">
+                      <input name="emailPassword" class="password" type="password">
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <label></label>
+                  <div class="controls">
+                    <button class="submit btn" type="submit">Submit</button>
+                    <span class="submitMessage"></span>
+                  </div>
                 </section>
               </form>
             </div>
