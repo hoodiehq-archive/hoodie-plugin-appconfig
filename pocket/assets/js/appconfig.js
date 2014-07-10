@@ -19,6 +19,7 @@ $(function () {
             return alert(err);
         }
         $('[name=appName]').val(doc.config.app_name);
+        $('[name=confirm_users]').val(doc.config.confirm_users);
         $('[name=fromEmail]').val(doc.config.email_from);
         $('[name=emailService]').select2('val', doc.config.email_service);
         $('[name=emailUsername]').val(doc.config.email_user);
@@ -56,6 +57,7 @@ $(function () {
         setSubmitButtonToSaving(this);
         var cfg = {
             app_name: $('[name=appName]').val()
+            confirm_users: $('[name=confirm_users]').val()
         };
         updateConfig(cfg, function (err) {
             if (err) {
