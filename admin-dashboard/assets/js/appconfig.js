@@ -1,7 +1,18 @@
 $(function () {
+    var hoodieAdmin = top.hoodieAdmin;
 
-    var getConfig = _.partial(couchr.get, '/_api/app/config');
-    var setConfig = _.partial(couchr.put, '/_api/app/config');
+    function getConfig(callback) {
+      hoodieAdmin.request('GET', '/app/config')
+        .fail(function(error) { callback(error); })
+        .done(function(response) { callback(null, response); })
+    }
+    function setConfig(doc, callback) {
+      hoodieAdmin.request('PUT', '/app/config', {
+        data: JSON.stringify(doc)
+      })
+        .fail(function(error) { callback(error); })
+        .done(function(response) { callback(null, response); })
+    }
 
     function updateConfig(obj, callback) {
         getConfig(function (err, doc) {
