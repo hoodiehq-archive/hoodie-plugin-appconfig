@@ -29,7 +29,7 @@
         <label for="fromEmail">Default From E-Mail Address</label>
         <input name="fromEmail"class="form-control"  type="email" placeholder="Default from address">
         <p class="help-block">For password reset emails etc.</p>
-        <br>
+
         <label>Email Service</label>
         <select name="emailService">
           <option value="Gmail">Google Mail</option>
@@ -43,11 +43,6 @@
         <label for="port" class="showIfSMTP">Port</label>
         <input name="emailPort" type="text" class="form-control showIfSMTP" id="port" placeholder="Email Service Port">
 
-        <div class="checkbox showIfSMTP">
-          <input type="checkbox" id="secure" checked>
-          <label for="example-checkbox-1">Secure</label>
-        </div>
-        <br>
         <label for="username" class="hideIfAPI">Username</label>
         <input name="emailUsername" type="email" class="form-control hideIfAPI" id="username" placeholder="Username">
         <p class="help-block hideIfAPI">Account name for the email service</p>

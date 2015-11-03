@@ -37,9 +37,6 @@ $(function () {
         $('[name=emailPassword]').val(doc.config.email_pass);
         $('[name=emailHost]').val(doc.config.email_host);
         $('[name=emailPort]').val(doc.config.email_port);
-        if(!doc.config.email_secure){
-          $('#secure').iCheck('uncheck');
-        }
         updateForm();
     });
 
@@ -117,7 +114,7 @@ $(function () {
             email_port: $('[name=emailPort]').val(),
             email_user: $('[name=emailUsername]').val(),
             email_pass: $('[name=emailPassword]').val(),
-            email_secure: $('#secure').is(":checked"),
+            email_secure: null,
             email_service: $('[name=emailService]').select2('val')
         };
         updateConfig(cfg, function (err) {
