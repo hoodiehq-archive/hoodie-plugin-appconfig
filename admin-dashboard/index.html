@@ -37,24 +37,32 @@
           <option value="SendGrid">SendGrid</option>
           <option value="SMTP">SMTP</option>
         </select>
-        <label for="username" class="showIfSMTP">Host</label>
-        <input name="emailHost" type="text" class="form-control showIfSMTP" id="host" placeholder="Email Service Host">
 
-        <label for="port" class="showIfSMTP">Port</label>
-        <input name="emailPort" type="text" class="form-control showIfSMTP" id="port" placeholder="Email Service Port">
+        <div class="group showIfSMTP">
+          <label for="username">Host</label>
+          <input name="emailHost" type="text" class="form-control" id="host" placeholder="Email Service Host">
 
-        <label for="username" class="hideIfAPI">Username</label>
-        <input name="emailUsername" type="email" class="form-control hideIfAPI" id="username" placeholder="Username">
-        <p class="help-block hideIfAPI">Account name for the email service</p>
+          <label for="port">Port</label>
+          <input name="emailPort" type="text" class="form-control" id="port" placeholder="Email Service Port">
+        </div>
 
-        <label for="password" class="hideIfAPI">Password</label>
-        <input name="emailPassword" type="password" class="form-control hideIfAPI" id="password" placeholder="Password">
-        <p class="help-block hideIfAPI">Email service password</p>
+        <div class="group hideIfAPI">
+          <label for="username">Username</label>
+          <input name="emailUsername" type="email" class="form-control" id="username" placeholder="Username">
+          <p class="help-block">Account name for the email service</p>
+        </div>
 
-        <label for="password" class="showIfAPI">API Key</label>
-        <input name="emailPassword" type="password" class="form-control showIfAPI" id="password" placeholder="API Key">
-        <p class="help-block showIfAPI">Email service API Key</p>
+        <div class="group hideIfAPI password">
+          <label for="password">Password</label>
+          <input name="emailPassword" type="text" class="form-control" id="password" placeholder="Password">
+          <p class="help-block">Email service password</p>
+        </div>
 
+        <div class="group showIfAPI APIKey">
+          <label for="APIKey">API Key</label>
+          <input name="emailAPIKey" type="text" class="form-control" id="APIKey" placeholder="API Key">
+          <p class="help-block">Email service API Key</p>
+        </div>
 
         <button class="submit btn" type="submit">Save email config</button>
       </fieldset>

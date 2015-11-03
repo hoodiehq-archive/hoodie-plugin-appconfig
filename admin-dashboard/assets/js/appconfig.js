@@ -35,27 +35,35 @@ $(function () {
         $('[name=emailService]').select2('val', doc.config.email_service);
         $('[name=emailUsername]').val(doc.config.email_user);
         $('[name=emailPassword]').val(doc.config.email_pass);
+        $('[name=emailAPIKey]').val(doc.config.email_pass);
         $('[name=emailHost]').val(doc.config.email_host);
         $('[name=emailPort]').val(doc.config.email_port);
-        updateForm();
+        updateForm(true);
     });
 
     function updateForm(){
-      var withAPIKey = ['Mandrill', 'Sendgrid'];
+      var withAPIKey = ['Mandrill', 'SendGrid'];
       var emailService = $('[name=emailService]').select2('val');
       if(withAPIKey.indexOf(emailService) === -1){
         // without api
         $('.hideIfAPI').show();
-        $('.showIfAPI').hide().val('');
+        $('.showIfAPI').hide()
+        if(emailService !== 'SMTP'){
+          $('.showIfAPI input').val('');
+        }
       } else {
         // with api key
-        $('.hideIfAPI').hide().val('');
+        $('.hideIfAPI').hide();
+        $('.hideIfAPI input').val('');
         $('.showIfAPI').show();
       }
       if(emailService === 'SMTP'){
-        $('.showIfSMTP').show();
+        $('.showIfSMTP, .APIKey').show();
+        $('.password').hide();
+        $('.password input').val('');
       } else {
-        $('.showIfSMTP').hide().val('');
+        $('.showIfSMTP').hide();
+        $('.showIfSMTP input').val('');
       }
     }
 
@@ -117,6 +125,9 @@ $(function () {
             email_secure: null,
             email_service: $('[name=emailService]').select2('val')
         };
+        if($('[name=emailAPIKey]').val()){
+          cfg.email_pass = $('[name=emailAPIKey]').val()
+        }
         updateConfig(cfg, function (err) {
             if (err) {
                 return alert(err);
