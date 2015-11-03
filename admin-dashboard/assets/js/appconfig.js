@@ -1,5 +1,6 @@
 $(function () {
     var hoodieAdmin = top.hoodieAdmin;
+    $('[name=emailService]').on('change', updateForm);
 
     function getConfig(callback) {
       hoodieAdmin.request('GET', '/app/config')
@@ -34,7 +35,32 @@ $(function () {
         $('[name=emailService]').select2('val', doc.config.email_service);
         $('[name=emailUsername]').val(doc.config.email_user);
         $('[name=emailPassword]').val(doc.config.email_pass);
+        $('[name=emailHost]').val(doc.config.email_host);
+        $('[name=emailPort]').val(doc.config.email_port);
+        if(!doc.config.email_secure){
+          $('#secure').iCheck('uncheck');
+        }
+        updateForm();
     });
+
+    function updateForm(){
+      var withAPIKey = ['Mandrill', 'Sendgrid'];
+      var emailService = $('[name=emailService]').select2('val');
+      if(withAPIKey.indexOf(emailService) === -1){
+        // without api
+        $('.hideIfAPI').show();
+        $('.showIfAPI').hide().val('');
+      } else {
+        // with api key
+        $('.hideIfAPI').hide().val('');
+        $('.showIfAPI').show();
+      }
+      if(emailService === 'SMTP'){
+        $('.showIfSMTP').show();
+      } else {
+        $('.showIfSMTP').hide().val('');
+      }
+    }
 
     function setSubmitButtonToSaving(form){
         $btn = $(form).find('button[type="submit"]');
@@ -87,11 +113,11 @@ $(function () {
         setSubmitButtonToSaving(this);
         var cfg = {
             email_from: $('[name=fromEmail]').val(),
-            email_host: null,
-            email_port: null,
+            email_host: $('[name=emailHost]').val(),
+            email_port: $('[name=emailPort]').val(),
             email_user: $('[name=emailUsername]').val(),
             email_pass: $('[name=emailPassword]').val(),
-            email_secure: null,
+            email_secure: $('#secure').is(":checked"),
             email_service: $('[name=emailService]').select2('val')
         };
         updateConfig(cfg, function (err) {
